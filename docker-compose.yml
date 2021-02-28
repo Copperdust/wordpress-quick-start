@@ -1,0 +1,30 @@
+version: "2"
+services:
+  db:
+    image: mariadb:latest
+    volumes:
+       - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+  wordpress:
+    image: wordpress
+    volumes:
+      - ./:/var/www/html
+    ports:
+      - "8080:80"
+    links:
+      - db:mysql
+    environment:
+      WORDPRESS_DB_PASSWORD: pass
+  my-wpcli:
+    image: tatemz/wp-cli
+    volumes_from:
+      - wordpress
+    links:
+      - db:mysql
+    entrypoint: wp  
+    command: "--info"
+volumes:
+  db_data:
