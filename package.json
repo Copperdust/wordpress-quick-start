@@ -1,7 +1,7 @@
 {
-  "name": "bam-test",
+  "name": "ad-system",
   "version": "1.0.0",
-  "description": "This is a site for BAM Test.",
+  "description": "This is a site for an example ad system plugin.",
   "main": "gulpfile.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

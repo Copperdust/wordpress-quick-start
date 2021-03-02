@@ -758,3 +758,15 @@ function twentytwenty_get_elements_array() {
 	*/
 	return apply_filters( 'twentytwenty_get_elements_array', $elements );
 }
+
+
+/**
+ * CUSTOM TEST STUFF
+ */
+add_filter('eas_register_custom_templates', function($templates) {
+  $templates['debug-settings'] = 'Debug Settings';
+  return $templates;
+});
+add_action('eas_render_template_debug-settings', function($settings) {
+  print_r($settings);
+});
